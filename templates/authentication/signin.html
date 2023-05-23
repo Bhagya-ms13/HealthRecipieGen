@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+    <title>iCode</title>
+</head>
+<body>
+
+ 
+
+
+    <div class="landing-page">
+
+        <div class="navbar">
+
+            <div class="logo">
+                <h2>iCode</h2>
+            </div>
+
+
+         
+
+        </div>
+
+        <div class="content">
+
+            <div class="content-left">
+                <div class="content-heading">
+                    <h1>Welcome Back</h1>
+                </div>
+                <form action="/signin" method="post">
+                    {% csrf_token %}
+
+                <div class="content-text">
+                    <label for="username">UserName:</label>
+                    <input type="username" class="form-control" id="username" name="username" placeholder="Enter username" required>
+
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+                </div>
+        
+                <!-- <div class="forgot-pwd">
+                    <p>Forgot password?</p>
+                </div> -->
+                <div class="login">
+                    <button type="submit" class="login-btn">  Log In </button>
+                </div>
+                </form>
+
+
+
+                    <div class="getstarted">
+                        <p>Don't have an account yet?</p>
+                        <p class="fadeText"> <a href="/signup"> Sign Up </a></p>
+                    </div>
+
+                                    
+                    {% for message in messages %} 
+                    <div class="alert-successful">
+                    {{message}}
+                    </div>
+                    {% endfor %}
+            </div>
+
+        
+
+            <div class="content-right">
+                <img src="{% static 'img1.svg' %}" alt="" class="img1">
+                <img src="{% static 'img2.svg' %}" alt="" class="img2">
+                
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

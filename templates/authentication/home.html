@@ -1,0 +1,80 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>iCode</title>
+</head>
+<body>
+    <div class="landing-page">
+
+        
+            <div class="login">
+                <button class="login-btn"> <a href="/signin"> Log In </a></button>
+            </div>
+
+        </div>
+
+        <div class="content">
+
+
+
+
+
+            <div class="content-left">
+
+
+                <div class="content-heading">
+                    <h1>Let's Build Together</h1>
+                </div>
+                
+                <div class="content-text">
+                    <p>Find your partners, build something amazing together<br>and showcase it to your peers<p>
+                    <button class="getstarted-btn"> <a href="/signup"> Get Started </a></button>
+                    <div class="getstarted">
+                        <p>Already a member?</p>
+                        <p class="fadeText"> <a href="/signin"> Log In </a></p>
+                    </div>
+
+             
+
+                </div>
+
+                       
+            {% for message in messages %} 
+            <div class="alert-successful">
+                <strong> {{message}} </strong>
+                
+            </div>
+            
+            {% endfor %} 
+
+
+
+            </div>
+
+            <div class="content-right">
+
+                <img src="{% static 'img1.svg' %}" alt="" class="img1">
+                <img src="{% static 'img2.svg' %}" alt="" class="img2">
+                
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</body>
+</html>
