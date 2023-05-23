@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap5',
     'authentication',
+    'profilec',
+    'addpost'
 ]
 
 MIDDLEWARE = [

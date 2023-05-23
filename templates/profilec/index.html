@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'mainpage.css' %}">
+    <title>MainPage</title>
+</head>
+<body>
+
+
+
+
+
+    <header>
+
+    
+        <nav class="navbar">
+            <hr>
+            <ul>
+                <li><a href="/profilec">Dashboard</a></li>
+                <li><a href="/addpost">Add recipie</a></li>
+                
+                <li><a href="/signout" id="logout">Logout</a></li>
+
+                
+            </ul>
+        </nav>
+    
+    </header>
+
+    <section class="dashboard" id="dashboard">
+
+        <div class="top-navbar">
+            <form action="" method="get">
+                <input class="form-input" type="text" placeholder="Search here" name="query">
+           <!-- this should be the drop down  -->
+                    <button type="submit">Submit!</button>
+                </form>
+            </div>
+        </div>
+
+
+        
+    </section>
+    
+
+</body>
+</html>
