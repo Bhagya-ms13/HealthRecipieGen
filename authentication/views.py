@@ -2,8 +2,8 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-# name = ''
-# Create your views here.
+from addpost.models import Blog
+from addpost.forms import BlogForm
 def home(request):
     return render(request, 'authentication/home.html')
 
@@ -12,12 +12,18 @@ def signin(request):
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
-
+    
+        blogs = Blog.objects.all().order_by('-created_on')
+        form = BlogForm()
+        context = {
+            'blog_list' : blogs,
+            'form' :form,
+            'name': request.user.first_name
+        }
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request,user)
-            name = user.first_name
-            return render(request, 'profilec/index.html', {'name': name})
+            return render(request, 'addpost/blogindex.html', context)
 
 
         else:

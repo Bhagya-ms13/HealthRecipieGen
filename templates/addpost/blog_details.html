@@ -8,12 +8,14 @@
 
 </head>
 <body>
-    <a href="{% url 'blog-list' %}">Back To Feed</a>
+    <a href="{% url 'blogindex' %}">Back To Feed</a>
      <p>{{ blog.title }}</p>
+     <p>{{ blog.diet }}</p>
+     <p>{{ blog.course }}</p>
     <p><strong>{{ blog.author }}</strong> </p>
     <p><br>{{ blog.created_on }}</p>
  <p>{{ blog.body }}</p>
- <p>{{ blog.preptime }}</p>
+ <!-- <p>{{ blog.preptime }}</p> -->
     
 </body>
 

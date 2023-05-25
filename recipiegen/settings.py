@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap5',
     'authentication',
-    'profilec',
+
     'addpost'
 ]
 
@@ -80,8 +80,15 @@ WSGI_APPLICATION = 'recipiegen.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE' : 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'HOST' : 'containers-us-west-138.railway.app',
+        'PASSWORD' : 'xCY11kslI5OmqCIHf8qv',
+        'USER' : 'postgres',
+        'PORT' : '7252'
+       
+
     }
 }
 

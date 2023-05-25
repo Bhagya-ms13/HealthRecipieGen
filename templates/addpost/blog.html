@@ -46,7 +46,6 @@
         <nav class="navbar">
             <hr>
             <ul>
-                <li><a href="/profilec">Dashboard</a></li>
                 <li><a href="/addpost">Add recipie</a></li>
                 
                 <li><a href="/signout" >SignOut</a></li>
@@ -74,27 +73,7 @@
             </div>
         </div>
 
-        
-        <div class="row justify-content-center mt-3 blogg">
-            {% for blog in blog_list %}
-            <div class="col-md-5 col-sm-12 border-bottom bloogg">
-                <h1>
-                        {{ blog.title }}
-                </h1>
-                <p><strong>{{blog.author }}</strong> {{ blog.created_on }}</p>
-                <p>{{ blog.ingredient }}</p>
-                <p>{{ blog.preptime }}</p>
-                <p>{{ blog.body }}</p>
-
-                <a href="{% url 'blog-detail' blog.pk %}">More...</a>
-
-                
-            </div>
-            {% endfor %} 
         </div>
-        
-    </div>
-    
 
 
 </center>

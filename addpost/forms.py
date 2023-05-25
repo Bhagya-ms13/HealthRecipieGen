@@ -22,28 +22,27 @@ class BlogForm(forms.ModelForm):
         'placeholder': 'Add Ingredients'
         })
     )
-    preptime = forms.CharField(
+    preptime = forms.DecimalField(
         
-        label='',
-        widget=forms.Textarea(attrs={
-        'class' : 'blogtime',
-        'rows' : '2',
-        'placeholder': 'Prep time in min'
-        })
+        label='Add prep time in min',
+        decimal_places= 0,
+
+        
     )
     body = forms.CharField(
         
         label='',
-        widget=forms.Textarea(attrs={
+      widget=forms.Textarea(attrs={
         'class' : 'blogcontent',
         'rows' : '15',
         'placeholder': 'Write about the process'
         })
-    )
+    )  
+    
     
    
 
     class Meta:
         model = Blog
-        fields = ['body', 'title']
+        fields = ['body', 'title', 'preptime','ingredients', 'diet', 'course']
 
