@@ -22,13 +22,13 @@ class BlogForm(forms.ModelForm):
         'placeholder': 'Add Ingredients'
         })
     )
-    preptime = forms.DecimalField(
+    # preptime = forms.DecimalField(
         
-        label='Add prep time in min',
-        decimal_places= 0,
+    #     label='Add prep time in min',
+    #     decimal_places= 0,
 
         
-    )
+    # )
     body = forms.CharField(
         
         label='',
@@ -44,5 +44,5 @@ class BlogForm(forms.ModelForm):
 
     class Meta:
         model = Blog
-        fields = ['body', 'title', 'preptime','ingredients', 'diet', 'course']
+        fields = ['body', 'title','ingredients', 'diet', 'course']
 

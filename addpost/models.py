@@ -34,7 +34,7 @@ class Blog(models.Model):
     title = models.TextField()
     ingredients = models.TextField()
     body = models.TextField()
-    preptime = models.DecimalField(decimal_places=0, max_digits=3, default=0), 
+    # preptime = models.DecimalField(decimal_places=0, max_digits=3, default=0), 
     course = models.CharField(max_length=20, choices=course_choices, default='appetizer')
     diet = models.CharField(max_length=28, choices=diet_choices, default='diet')
     # describe the project 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search page</title>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <hr>
+        <ul>
+            
+            <li><a href="/addpost/index">Dashboard</a></li>
+            <li><a href="/addpost">Add recipie</a></li>
+            <li><a href="/search">Search for recipie</a></li>
+            <li><a href="/signout" id="logout">Logout</a></li>
+
+        </ul>
+    </nav>
+    <form action="/search" method="post">
+        {% csrf_token %} 
+        <select name="diet" id="diet">
+
+            <option value="vegetarian">vegetarian</option>
+            <option value="high protein non vegetarian">High Protein Non Vegetarian</option>
+            <option value="no onion no garlic (sattvic)">Sattvic</option>
+            <option value="eggetarian">Eggetarian</option>
+            <option value="diabetic friendly">Diabetic friendly</option>
+            <option value="gluten free">Gluten frww</option>
+          </select>
+          <select name="course" id="course">
+            <option value="side dish">side dish</option>
+            <option value="appetizer">appetizer</option>
+            <option value="main course">main course</option>
+            <option value="lunch">lunch</option>
+            <option value="dinner">dinner</option>
+            <option value="snacks">snacks</option>
+            <option value="dessert">dessert</option>
+          </select>
+          
+
+        <input type="submit" value="OK">
+    </form>
+   
+    {% for blog in blog_list %}
+            <div class="col-md-5 col-sm-12 border-bottom bloogg">
+                    <p>{{ blog.title }}</p>
+                    <p>{{ blog.diet }}</p>
+                    <p>{{ blog.course }}</p>
+                   <p><strong>{{ blog.author }}</strong> </p>
+                   <p><br>{{ blog.created_on }}</p>
+                <p>{{ blog.body }}</p>
+                
+            </div>
+            {% endfor %} 
+</body>
+</html>

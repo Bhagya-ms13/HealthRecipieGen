@@ -7,5 +7,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('authentication.urls')),
     # path('profilec/', include('profilec.urls')),
-    path('', include('addpost.urls'))
+    path('', include('addpost.urls')),
+    path('',include('search.urls'))
 ]

@@ -32,17 +32,7 @@ class BlogListView(View):
 
         return render(request, 'addpost/blogindex.html', context)
         
-class BlogDetailView(View):
-    def get(self, request,pk, *args, **kwargs):
-        blog = Blog.objects.get(pk=pk)
-       
-        context = {
-            'blog' : blog,
-           
-        }
-        return render(request, 'blog_details.html', context)
-        
-        
+  
 class BlogView(View):
     def get(self, request, *args, **kwargs):
         blogs = Blog.objects.all().order_by('-created_on')
