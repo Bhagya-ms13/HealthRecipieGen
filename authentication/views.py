@@ -18,7 +18,7 @@ def signin(request):
         context = {
             'blog_list' : blogs,
             'form' :form,
-            'name': request.user.first_name
+            'name': request.user
         }
         user = authenticate(username=username, password=password)
         if user is not None:

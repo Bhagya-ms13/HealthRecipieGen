@@ -8,7 +8,7 @@ from django.views import View
 def getval(request):
     context = {
         'blog_list' : "",
-        'name': request.user.first_name
+        'name': request.user
 
 
 
@@ -22,7 +22,7 @@ def getval(request):
         context = {
             'blog_list' : blogs,
             
-            'name': request.user.first_name
+            'name': request.user
         }
         return render(request, 'search/index.html', context)
     return render(request, 'search/index.html', context)

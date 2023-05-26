@@ -11,7 +11,7 @@ class BlogListView(View):
         context = {
             'blog_list' : blogs,
             'form' :form,
-            'name': request.user.first_name
+            'name': request.user
         }
 
         return render(request, 'addpost/blog.html', context)
@@ -27,7 +27,7 @@ class BlogListView(View):
         context = {
             'blog_list' : blogs,
             'form' :form,
-            'name' : request.user.first_name
+            'name' : request.user
         }
 
         return render(request, 'addpost/blogindex.html', context)
@@ -40,7 +40,16 @@ class BlogView(View):
         context = {
             'blog_list' : blogs,
             'form' :form,
-            'name': request.user.first_name
+            'name': request.user
+        }
+        return render(request, 'addpost/blogindex.html', context)
+    def post(self, request, *args, **kwargs):
+        blogs = Blog.objects.all().order_by('-created_on')
+        form = BlogForm()
+        context = {
+            'blog_list' : blogs,
+            'form' :form,
+            'name': request.user
         }
         return render(request, 'addpost/blogindex.html', context)
         
