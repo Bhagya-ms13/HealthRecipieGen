@@ -30,7 +30,7 @@ class BlogListView(View):
             'name' : request.user
         }
 
-        return render(request, 'addpost/blogindex.html', context)
+        return render(request, 'addpost/blog.html', context)
         
   
 class BlogView(View):
