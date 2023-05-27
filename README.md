@@ -8,6 +8,7 @@ Tired of scrolling through endless number of recipe websites , trying to find a 
 
 # How to run
 pip install -r requirements.txt
+
 python manage.py runserver
 
 # Stacks used
