@@ -132,6 +132,9 @@
     
    
 }
+.title {
+    font-size: 20px;
+}
 
 
 /* Responsive styles */
@@ -187,15 +190,15 @@
             {% for blog in blog_list %}
             <div class="col-md-5 col-sm-12 border-bottom bloogg">
                 <div class="blog">
-                    <p class="heading">{{ blog.title }}</p>
-                <p class="heading">{{ blog.diet }}</p>
-                <p class="heading">{{ blog.course }}</p>
-               <p class="heading"><strong>{{ blog.author }}</strong> </p>
-               <p class="heading"><br>{{ blog.created_on }}</p>
+                    <p class="heading title">{{ blog.title }}</p>
+                <!-- <p class="heading">{{ blog.diet }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ blog.course }}</p> -->
+               
+               <!-- <p class="heading"><strong>{{ blog.author }}</strong> </p> -->
+               <!-- <p class="heading"><br>{{ blog.created_on }}</p> -->
 
                 </div>
                 
-            <p id="content">{{ blog.body }}</p>
+            <!-- <p id="content">{{ blog.body }}</p> -->
             </div>
             {% endfor %} 
         </div>

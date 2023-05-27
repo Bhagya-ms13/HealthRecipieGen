@@ -199,10 +199,11 @@ form input[type="submit"] {
     {% for blog in blog_list %}
             <div class="col-md-5 col-sm-12 border-bottom bloogg">
                     <p class="content header">{{ blog.title }}</p>
-                    <p class="content header">{{ blog.diet }}</p>
-                    <p class="content header">{{ blog.course }}</p>
+                    <p class="content header">{{ blog.diet }}{{ blog.course }}</p>
                    <p class="content header"><strong>{{ blog.author }}</strong> </p>
-                   <p class="content header"><br>{{ blog.created_on }}</p>
+                   <!-- <p class="content header"><br>{{ blog.created_on }}</p> -->
+                <p id="content"><em>{{ blog.ingredients }}</em></p>
+
                 <p class="content">{{ blog.body }}</p>
                 
             </div>
