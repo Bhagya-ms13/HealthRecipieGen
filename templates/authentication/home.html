@@ -9,72 +9,164 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
     <link rel="stylesheet" href="{% static 'styles.css' %}">
-    <title>iCode</title>
+    <title>NutriBlend</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif ;
+        }
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url({%static 'cover2.jpg' %});
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .wrapper {
+            width:100%;
+            margin:auto;
+        }
+        .menu{
+            float: right;
+            list-style:none;
+            margin-top: 30px;
+            margin-right: 10px;
+        }
+        .menu li{
+            display: inline-block;
+        }
+        .menu li a{
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        .menu li a:hover{
+            background: #fff;
+            color:#333;
+            border-radius: 10px;
+        }
+        .logo{
+            float: left;
+            margin-top: 25px;
+            margin-left: 10px;
+            color: #fff;
+            font-size: 1.5em;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .text{
+            position: absolute;
+            width: 600px;
+            height: 300px;
+            margin: 20% 30%;
+            text-align: center;
+        }
+        .text h1{
+            text-align: center;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+        .text a{
+            background: orange;
+            border-radius: 10px;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px;
+            letter-spacing: 1px;
+            margin-top: 20px;
+            display: inline-block;
+            color: #fff;
+
+        }
+        .text a:hover{
+            background: #fff;
+            color: #333;
+
+        }
+        .text p{
+            color: #fff;
+            font-size: 30px;
+        }
+        #log{
+            background:orangered ;
+
+        }
+        .message-container {
+       color: #f2f2f2;
+       padding: 0;
+       margin-bottom: 0;
+        }
+        @media (max-width:650px){
+            .logo{
+                float: none;
+                width: 50%;
+                text-align: center;
+                margin: auto;
+                margin-bottom: 5px;
+            }
+            .menu{
+                float: none;
+                margin-top: 0;
+                text-align: center;
+            }
+            .menu li a{
+                padding: 5px;
+                font-size: 11px;
+            }
+            .text{
+                width: 100%;
+                height: 100%;
+                margin: 30% 0;
+            }
+            .text h1{
+                font-size: 30px;
+            }
+            .text p{
+                font-size: 18px;
+            }
+            .text a{
+                font-size: 12px;
+                padding: 10px;
+            }
+            
+
+        }
+    </style>
 </head>
 <body>
-    <div class="landing-page">
-
-        
-            <div class="login">
-                <button class="login-btn"> <a href="/signin"> Log In </a></button>
-            </div>
-
-        </div>
-
-        <div class="content">
-
-
-
-
-
-            <div class="content-left">
-
-
-                <div class="content-heading">
-                    <h1>Let's Build Together</h1>
-                </div>
-                
-                <div class="content-text">
-                    <p>Find your partners, build something amazing together<br>and showcase it to your peers<p>
-                    <button class="getstarted-btn"> <a href="/signup"> Get Started </a></button>
-                    <div class="getstarted">
-                        <p>Already a member?</p>
-                        <p class="fadeText"> <a href="/signin"> Log In </a></p>
-                    </div>
-
-             
-
-                </div>
-
-                       
+   <header>
+        <div class="wrapper">
+            <div class="logo">NutriBlend</div> 
+            
+        <div class="text">
+            <h1>NUTRIBLEND</h1>
+            <p>Unlock the Boundless Flavor of Wholesome Goodness: Embrace Health and Explore a World of Nutritious Recipes</p>
+            <a href="/signup"> Join The Healthy Revolution </a><br>
+            <a href="/signin" id="log"> Log In</a>
             {% for message in messages %} 
-            <div class="alert-successful">
+            <div class="message-container">
                 <strong> {{message}} </strong>
                 
             </div>
             
             {% endfor %} 
-
-
-
-            </div>
-
-            <div class="content-right">
-
-                <img src="{% static 'img1.svg' %}" alt="" class="img1">
-                <img src="{% static 'img2.svg' %}" alt="" class="img2">
-                
-                <div class="rect1"></div>
-                <div class="rect2"></div>
-
-            </div>
-
-
         </div>
+        
+    
 
-
-    </div>
-
+    </header>
+                  
+            
+    
 
 </body>
 </html>

@@ -1,5 +1,3 @@
-
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -10,73 +8,188 @@
     <link rel="stylesheet" href="{% static 'mainpage.css' %}">
     <link rel="stylesheet" href="{% static 'blog.css' %}">
     <title>Blog</title>
+    <style>
+        /* mainpage.css */
+       body {
+      
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url({%static 'cover.jpg' %});
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+           
+
+        }
+        .add {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        
+        }
+
+        
+        
+        .menu{
+            float: right;
+            list-style:none;
+            margin-top: 30px;
+            margin-right: 10px;
+        }
+        .menu li{
+            display: inline-block;
+        }
+        .menu li a{
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        .menu li a:hover{
+            background: #fff;
+            color:#333;
+            border-radius: 10px;
+        }
+        .logo{
+            float: left;
+            margin-top: 25px;
+            margin-left: 10px;
+            color: #fff;
+            font-size: 1.5em;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+
+    
+    .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: transparent;
+            justify-content: center;
+            border: 5px solid white;
+            border-radius: 20px;
+            backdrop-filter: blur(3px);
+    
+      }
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.border-bottom {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ccc;
+    text-transform: uppercase;
+}
+
+form {
+    margin-top: 20px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgb(160, 124, 77);
+}
+/* Add this CSS code to your blog.css file */
+
+textarea::placeholder {
+  color: #040101; /* Change the color to your desired value */
+}
+
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+/* Add this CSS code to your blog.css file */
+
+label[for="id_diet"] {
+  color: #fff; /* Set the desired color for the "Diet" label */
+}
+
+label[for="id_course"] {
+  color:#fff; /* Set the desired color for the "Course" label */
+}
+
+
+/* blog.css */
+
+    </style>
+
 </head>
 <body>
-
-
-
-<!-- 
-    {% for message in messages %} 
-        <strong>Message: </strong> {{message}}
+    <div class="wrapper">
+        <div class="logo">NutriBlend</div> 
+        <ul class="menu">
+            <li><a href="/addpost/index">Dashboard</a></li>
+            <li><a href="/addpost">Add recipie</a></li>
+            <li><a href="/search">Search for recipie</a></li>
         
-    {% endfor %} 
+            <li><a href="/signout" id="logout">Logout</a></li>
+            
+           
+           
 
+        </ul>
 
-    {% if user.is_authenticated %} 
-    <h3>Welcome {{ name }}</h3>
-    <h4>Successfully logged in !</h4>
-    {% else %} 
-    <h3>Wrong page</h3>
-    {% endif %} -->
-
-    <header>
-
-        <div class="user">
-            <!-- <img src="images/logo.png.png" alt="My logo" class="logo"> -->
-            <p class="logo">iCode</p>
-            <img src="{% static 'user.webp' %}" alt="Profile Photo" class="pic">
-            <p class="name">{{name}}</p>
-            <div class="public-status">
-                <p class="following"><b>30</b><br>FOLLOWERS
-                </p>
-                <p class="follower"><b>30</b><br>FOLLOWING</p>
-            </div>
-        </div>
-    
-        <nav class="navbar">
-            <hr>
-            <ul>
-                
-                <li><a href="/addpost/index">Dashboard</a></li>
-                <li><a href="/addpost">Add recipie</a></li>
-                <li><a href="/search">Search for recipie</a></li>
-                <li><a href="/signout" id="logout">Logout</a></li>
-
-            </ul>
-        </nav>
-        
-    
-    </header>
+    </div>
     <center>
+        <div class="add">
+            <div class="container">
+
+                <div class="row justify-content-center mt-3 content">
+                    <div class="col-md-5 col-sm-12 border-bottom">
+                        <h1>
+                                Add a blog post
+                        </h1>
+                        <form action="" method="post">
+                            {% csrf_token %}
         
-    <div class="container">
-
-        <div class="row justify-content-center mt-3 content">
-            <div class="col-md-5 col-sm-12 border-bottom">
-                <h1>
-                        Add a blog post
-                </h1>
-                <form action="" method="post">
-                    {% csrf_token %}
-
-                    {{ form }}
-                    <br><br>
-                    <button type="submit">Submit!</button>
-                </form>
-            </div>
-        </div>
+                            {{ form }}
+                            <br><br>
+                            <button type="submit">Submit!</button>
+                        </form>
+                    </div>
+                </div>
+        
+                </div>
 
         </div>
+        
+    
 
 
 </center>

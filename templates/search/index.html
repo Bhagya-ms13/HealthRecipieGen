@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,19 +7,170 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search page</title>
 </head>
+<style>
+    /* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Apply basic styles to the body */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.4;
+  background: linear-gradient(rgba(56, 11, 11, 0.7),rgba(113, 0, 0, 0.7));
+  color: #333;
+}
+
+.wrapper {
+        width:100%;
+        margin:auto;
+       
+
+        
+    }
+    header {
+        font-family: Arial, Helvetica, sans-serif ;
+      height: 50vh;
+     width: 100%;
+     background: url({% static 'pic3.jpg' %});
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+}
+
+
+    
+    .menu{
+        display: flex;
+        float: right;
+        list-style:none;
+        margin-top: 30px;
+        margin-left: 100px;
+        margin-right: 10px;
+       
+       
+    }
+    .menu li{
+        display: inline-block;
+        margin-left: 10px;
+       
+    }
+    .menu li a{
+        color:rgb(21, 121, 114);
+        text-decoration: none;
+        padding: 10px 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 15px;
+    }
+    .menu li:first-child {
+     margin-left: 0
+    }
+    .menu li a:hover{
+        background: #fff;
+        color:#333;
+        border-radius: 10px;
+    }
+    .logo{
+        float: left;
+        margin-top: 25px;
+        margin-left: 10px;
+        color: #fff;
+        font-size: 1.5em;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+#logout {
+  color: #ff0000;
+}
+/* Style the search form */
+form {
+  margin: 20px 0;
+  text-align: center;
+}
+
+form select {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+form input[type="submit"] {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style the blog posts */
+.bloogg {
+ 
+  padding: 20px;
+  margin-bottom: 20px;
+  
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: transparent,linear-gradient(rgb(178, 33, 33),rgb(58, 9, 9));
+  border: 5px solid white;
+  backdrop-filter: blur(3px);
+}
+
+.bloogg p {
+  margin-bottom: 10px;
+}
+
+.bloogg p strong {
+  font-weight: bold;
+}
+
+.bloogg p:last-child {
+  margin-bottom: 0;
+}
+.content {
+    color: white;
+
+}
+.header {
+    text-transform: uppercase;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  form select,
+  form input[type="submit"] {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+</style>
 <body>
     
-    <nav class="navbar">
-        <hr>
-        <ul>
+    
+    <header>
+        <div class="wrapper">
+            <div class="logo">NutriBlend</div> 
+            <ul class="menu">
+                <li><a href="/addpost/index">Dashboard</a></li>
+                <li><a href="/addpost">Add recipie</a></li>
+                <li><a href="/search">Search for recipie</a></li>
             
-            <li><a href="/addpost/index">Dashboard</a></li>
-            <li><a href="/addpost">Add recipie</a></li>
-            <li><a href="/search">Search for recipie</a></li>
-            <li><a href="/signout" id="logout">Logout</a></li>
+                <li><a href="/signout" id="logout">Logout</a></li>
+                
+               
 
-        </ul>
-    </nav>
+            </ul>
+
+        </div>
+       
+    </header>
+
     <form action="/search" method="post">
         {% csrf_token %} 
         <select name="diet" id="diet">
@@ -46,12 +198,12 @@
    
     {% for blog in blog_list %}
             <div class="col-md-5 col-sm-12 border-bottom bloogg">
-                    <p>{{ blog.title }}</p>
-                    <p>{{ blog.diet }}</p>
-                    <p>{{ blog.course }}</p>
-                   <p><strong>{{ blog.author }}</strong> </p>
-                   <p><br>{{ blog.created_on }}</p>
-                <p>{{ blog.body }}</p>
+                    <p class="content header">{{ blog.title }}</p>
+                    <p class="content header">{{ blog.diet }}</p>
+                    <p class="content header">{{ blog.course }}</p>
+                   <p class="content header"><strong>{{ blog.author }}</strong> </p>
+                   <p class="content header"><br>{{ blog.created_on }}</p>
+                <p class="content">{{ blog.body }}</p>
                 
             </div>
             {% endfor %} 

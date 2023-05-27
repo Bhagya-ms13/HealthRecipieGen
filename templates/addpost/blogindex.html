@@ -7,6 +7,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'mainpage.css' %}">
     <title>MainPage</title>
+    <style>
+        /* Navbar styles */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url({% static 'background1.jpg' %});
+
+        }
+        .wrapper {
+        width:100%;
+        margin:auto;
+       
+
+        
+    }
+    header {
+        font-family: Arial, Helvetica, sans-serif ;
+      height: 50vh;
+     width: 100%;
+     background: url({% static 'header1.jpg' %});
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+}
+
+
+    
+    .menu{
+        display: flex;
+        float: right;
+        list-style:none;
+        margin-top: 30px;
+        margin-left: 100px;
+        margin-right: 10px;
+       
+       
+    }
+    .menu li{
+        display: inline-block;
+        margin-left: 10px;
+       
+    }
+    .menu li a{
+        color:rgb(21, 121, 114);
+        text-decoration: none;
+        padding: 10px 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 15px;
+    }
+    .menu li:first-child {
+     margin-left: 0
+    }
+    .menu li a:hover{
+        background: #fff;
+        color:#333;
+        border-radius: 10px;
+    }
+    .logo{
+        float: left;
+        margin-top: 25px;
+        margin-left: 10px;
+        color: #fff;
+        font-size: 1.5em;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+#logout {
+  color: #ff0000;
+}
+
+/* Dashboard styles */
+.dashboard {
+  margin-top: 0px;
+  padding: 20px;
+  padding-top: 0px;
+}
+
+.top-navbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.blogg {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
+}
+
+.bloogg {
+  background-color: #f8f8f8;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background: transparent;
+  border: 5px solid white;
+  backdrop-filter: blur(3px);
+}
+#content {
+    color: #f8f8f8;
+}
+
+.bloogg p {
+  margin: 5px 0;
+  color: #f8f8f8;
+
+  
+}
+.blog{
+
+    background: #3c0505;
+   padding: 20px;
+   
+   
+}
+
+.heading{
+    font-weight: bold;
+    text-transform: uppercase;
+    
+   
+}
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .blogg {
+    flex-direction: column;
+  }
+
+  .bloogg {
+    width: 100%;
+  }
+}
+
+    </style>
 </head>
 <body>
 
@@ -14,23 +153,26 @@
 
 
 
-    <header>
-
     
-        <nav class="navbar">
-            <hr>
-            <ul>
-                <li><a href="/addpost/index">Dashboard</a></li>
-                <li><a href="/addpost">Add recipie</a></li>
-                <li><a href="/search">Search for recipie</a></li>
+        <header>
+            <div class="wrapper">
+                <div class="logo">NutriBlend</div> 
+                <ul class="menu">
+                    <li><a href="/addpost/index">Dashboard</a></li>
+                    <li><a href="/addpost">Add recipie</a></li>
+                    <li><a href="/search">Search for recipie</a></li>
                 
-                <li><a href="/signout" id="logout">Logout</a></li>
-
-                
-            </ul>
-        </nav>
+                    <li><a href="/signout" id="logout">Logout</a></li>
+                    
+                   
     
-    </header>
+                </ul>
+    
+            </div>
+           
+        </header>
+    
+    
 
     <section class="dashboard" id="dashboard">
 
@@ -44,12 +186,16 @@
         <div class="row justify-content-center mt-3 blogg">
             {% for blog in blog_list %}
             <div class="col-md-5 col-sm-12 border-bottom bloogg">
-                <p>{{ blog.title }}</p>
-                <p>{{ blog.diet }}</p>
-                <p>{{ blog.course }}</p>
-               <p><strong>{{ blog.author }}</strong> </p>
-               <p><br>{{ blog.created_on }}</p>
-            <p>{{ blog.body }}</p>
+                <div class="blog">
+                    <p class="heading">{{ blog.title }}</p>
+                <p class="heading">{{ blog.diet }}</p>
+                <p class="heading">{{ blog.course }}</p>
+               <p class="heading"><strong>{{ blog.author }}</strong> </p>
+               <p class="heading"><br>{{ blog.created_on }}</p>
+
+                </div>
+                
+            <p id="content">{{ blog.body }}</p>
             </div>
             {% endfor %} 
         </div>
